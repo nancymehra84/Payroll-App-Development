@@ -50,4 +50,17 @@ public class EmployeeService {
     public void deleteEmployee(Long id) {
         repository.deleteById(id);
     }
+
+    public EmployeeDTO updateEmployee(Long id, EmployeeDTO employeeDTO) {
+        Employee employee = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Employee not found"));
+
+        employee.setName(employeeDTO.getName());
+        employee.setRole(employeeDTO.getRole());
+        employee.setSalary(employeeDTO.getSalary());
+
+        Employee updatedEmployee = repository.save(employee);
+        return convertToDTO(updatedEmployee);
+    }
+
 }
