@@ -3,6 +3,7 @@ package com.bridgelabz.employee_payroll_app.service;
 import com.bridgelabz.employee_payroll_app.dto.EmployeeDTO;
 import com.bridgelabz.employee_payroll_app.model.Employee;
 import com.bridgelabz.employee_payroll_app.repository.EmployeeRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import java.util.stream.Collectors;
 import java.util.ArrayList;
 import java.util.Optional;
 
+@Slf4j
 @Service
 public class EmployeeService {
     @Autowired
