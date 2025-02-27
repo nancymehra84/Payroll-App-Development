@@ -1,5 +1,7 @@
 package com.bridgelabz.employee_payroll_app.dto;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Data;
@@ -7,6 +9,10 @@ import lombok.Data;
 @NoArgsConstructor
 @Data
 public class EmployeeDTO {
+
+    @NotEmpty(message = "Name cannot be empty")
+    @Pattern(regexp = "^[A-Z][a-zA-Z ]{2,}$", message = "Name should start with an uppercase letter and have at least 3 characters")
+
     private String name;
     private double salary;
     private String role;
