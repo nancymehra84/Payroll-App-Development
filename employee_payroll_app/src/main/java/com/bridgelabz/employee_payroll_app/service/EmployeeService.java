@@ -1,6 +1,7 @@
 package com.bridgelabz.employee_payroll_app.service;
 
 import com.bridgelabz.employee_payroll_app.dto.EmployeeDTO;
+import com.bridgelabz.employee_payroll_app.exception.EmployeeNotFoundException;
 import com.bridgelabz.employee_payroll_app.model.Employee;
 import com.bridgelabz.employee_payroll_app.repository.EmployeeRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +14,7 @@ import java.util.stream.Collectors;
 import java.util.ArrayList;
 import java.util.Optional;
 
-@Slf4j
+//@Slf4j
 @Service
 public class EmployeeService {
     @Autowired
@@ -53,6 +54,13 @@ public class EmployeeService {
     }
 
     public void deleteEmployee(Long id) {
+        repository.deleteById(id);
+    }
+
+    public void DeleteEmployee(Long id) {
+        if (!repository.existsById(id)) {
+            throw new EmployeeNotFoundException("Employee with ID " + id + " not found");
+        }
         repository.deleteById(id);
     }
 
