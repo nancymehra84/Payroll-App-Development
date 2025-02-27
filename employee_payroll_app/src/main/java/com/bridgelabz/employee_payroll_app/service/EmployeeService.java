@@ -6,7 +6,8 @@ import com.bridgelabz.employee_payroll_app.repository.EmployeeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.ArrayList;
@@ -65,5 +66,14 @@ public class EmployeeService {
 
         Employee updatedEmployee = repository.save(employee);
         return convertToDTO(updatedEmployee);
+    }
+
+    private static final Logger log = LoggerFactory.getLogger(EmployeeService.class);
+
+    public void logExample() {
+        log.debug("DEBUG: Employee Service Debugging...");
+        log.info("INFO: Employee Service Processing...");
+        log.warn("WARN: Employee Service Warning...");
+        log.error("ERROR: Employee Service Error...");
     }
 }
