@@ -22,7 +22,11 @@ public class EmployeeService {
 
     // Convert Employee to EmployeeDTO
     private EmployeeDTO convertToDTO(Employee employee) {
-        return new EmployeeDTO(employee.getName(), employee.getSalary(), employee.getRole());
+        return new EmployeeDTO(employee.getName(), employee.getSalary(), employee.getRole(),employee.getGender(),
+                employee.getStartDate(),
+                employee.getNote(),
+                employee.getProfilePic(),
+                employee.getDepartment());
     }
 
     // Convert EmployeeDTO to Employee
@@ -31,6 +35,11 @@ public class EmployeeService {
         employee.setName(dto.getName());
         employee.setRole(dto.getRole());
         employee.setSalary(dto.getSalary());
+        employee.setGender(dto.getGender());
+        employee.setStartDate(dto.getStartDate());
+        employee.setNote(dto.getNote());
+        employee.setProfilePic(dto.getProfilePic());
+        employee.setDepartment(dto.getDepartment());
         return employee;
     }
 
