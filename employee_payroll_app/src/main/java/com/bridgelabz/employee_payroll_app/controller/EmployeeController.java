@@ -91,4 +91,8 @@ public class EmployeeController {
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping("/department/{department}")
+    public List<EmployeeDTO> getEmployeesByDepartment(@PathVariable String department) {
+        return employeeService.getEmployeesByDepartment(department);
+    }
 }

@@ -93,4 +93,8 @@ public class EmployeeService {
         log.warn("WARN: Employee Service Warning...");
         log.error("ERROR: Employee Service Error...");
     }
+    public List<EmployeeDTO> getEmployeesByDepartment(String department) {
+        List<Employee> employees = repository.findEmployeesByDepartment(department);
+        return employees.stream().map(this::convertToDTO).collect(Collectors.toList());
+    }
 }
